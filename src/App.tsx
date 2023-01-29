@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+import { Step1 } from "./components/Step1";
+import { Route, Routes } from "react-router-dom";
+import { Step2 } from "./components/Step2";
+import { Step3 } from "./components/Step3";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export function App() {
+    return (
+        <AppLayout>
+            <Routes>
+                <Route path="/" element={<Step1 />} />
+                <Route path="/step2" element={<Step2 />} />
+                <Route path="/step3" element={<Step3 />} />
+            </Routes>
+        </AppLayout>
+    );
 }
 
-export default App;
+const AppLayout = styled(Box)`
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1f2138;
+`;
